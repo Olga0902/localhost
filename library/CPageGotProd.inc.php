@@ -29,6 +29,8 @@ public function  Method_ProGotProd()
   $html = $this->Template(DIR_TEMPLATES.'tpl_progotprod.inc.tpl', array('content' => $result));
   $this->content = $this->Template(DIR_TEMPLATES.'tpl_content.inc.tpl', array('name_page' => 'Редагування бази даних про готову продукцію ', 'content' => $html));
 }
+
+
 public function Method_EditGotProd()
   {
     if($this->isPost())
@@ -36,7 +38,6 @@ public function Method_EditGotProd()
       $db = CMySQL::Instance();
       $result = $db->Update("gotovaya_produkciya", array('Nomer_produkcii' => $_POST['Nomer_produkcii'], 'Nazva_produkcii' => $_POST['Nazva_produkcii'],'Cena' => $_POST['Cena'], 'Kilkist_na_skladi' => $_POST['Kilkist_na_skladi'], 'Vaga_1pro' => $_POST['Vaga_1pro'],
       'Data_vygotovlennya' => $_POST['Data_vygotovlennya'], 'Vzhutu do' => $_POST['Vzhutu_do']),  'ID = '.$_POST['ID']);
-      print_r($result);
       if($result > 0) echo $result; else echo "false";
       exit;
     }
