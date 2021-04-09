@@ -29,8 +29,6 @@ public function  Method_ProGotProd()
   $html = $this->Template(DIR_TEMPLATES.'tpl_progotprod.inc.tpl', array('content' => $result));
   $this->content = $this->Template(DIR_TEMPLATES.'tpl_content.inc.tpl', array('name_page' => 'Редагування бази даних про готову продукцію ', 'content' => $html));
 }
-
-
 public function Method_EditGotProd()
   {
     if($this->isPost())
