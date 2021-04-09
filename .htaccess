@@ -1,0 +1,23 @@
+AddDefaultCharset UTF-8
+
+<IfModule mod_php7.c>
+php_flag    register_globals       Off
+php_flag    magic_quotes_gpc       Off
+php_flag    magic_quotes_runtime   Off
+
+php_flag    display_errors         On
+php_flag    log_errors             On
+
+php_value   upload_max_filesize    25M
+php_value   post_max_size          30M
+php_value   memory_limit           128M
+</IfModule>
+
+<IfModule mod_rewrite.c>
+RewriteEngine On 
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# Rewrite all other URLs to index.php/URL
+RewriteRule .* index.php?page=$0
+</IfModule>
